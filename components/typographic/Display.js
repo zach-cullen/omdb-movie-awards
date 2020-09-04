@@ -4,6 +4,7 @@ const XLargeDisplay = styled.h1`
   font-size: 42px;
   line-height: 44px;
   font-weight: 500;
+  letter-spacing: 0.025em;
 
   @media (max-width: ${props => props.theme.breakpoints.mobile}) {
     font-size: 27px;
@@ -16,6 +17,7 @@ const LargeDisplay = styled.h2`
   font-size: 28px;
   line-height: 32px;
   font-weight: 500;
+  letter-spacing: 0.01em;
 
   @media (max-width: ${props => props.theme.breakpoints.mobile}) {
     font-size: 24px;
