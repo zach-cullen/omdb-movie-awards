@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 export default function Home() {
   const [searchTerms, setSearchTerms] = useState('')
-  const [searchResults, setSearchResults] = useState([])
+  const [foundMovies, setFoundMovies] = useState([])
 
   const handleSearchChange = event => {
     setSearchTerms(event.target.value)
@@ -24,7 +24,15 @@ export default function Home() {
   }
 
   const saveSearchResults = results => {
-    setSearchResults(results)
+    setFoundMovies(results.Search)
+  }
+
+  const renderMovieList = () => {
+    return foundMovies.map(movie => {
+      return(
+        <p key={movie.Title}>{movie.Title}</p>
+      )
+    })
   }
 
   return (
@@ -38,6 +46,9 @@ export default function Home() {
           <input type='submit' value='Submit' />
         </form>
       </div>
+      <ul>
+        {renderMovieList()}
+      </ul>
       <div>
         Nominees:
       </div>
