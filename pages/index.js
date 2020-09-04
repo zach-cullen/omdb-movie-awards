@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Head from 'next/head'
 import FoundMovies from '../components/FoundMovies'
+import SearchForm from '../components/SearchForm'
 
 export default function Home() {
   const [searchTerms, setSearchTerms] = useState('')
@@ -41,10 +42,11 @@ export default function Home() {
       <h2>Movie awards for entrepreneurs</h2>
       <div>
         Search for a Movie:
-        <form onSubmit={handleSubmit}>
-          <input placeholder='Search' onChange={handleSearchChange} value={searchTerms} />
-          <input type='submit' value='Submit' />
-        </form>
+        <SearchForm 
+          handleSearchChange={handleSearchChange}
+          handleSubmit={handleSubmit}
+          searchTerms={searchTerms}
+        />
       </div>
       <FoundMovies movies={foundMovies} />
       <div>
