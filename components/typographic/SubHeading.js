@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const SubHeading = styled.h5`
+const SubHeading = styled.h6`
   font-size: 12px;
   line-height: 16px;
   font-weight: 600;
