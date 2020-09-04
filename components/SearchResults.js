@@ -1,14 +1,13 @@
+import SearchResultCard from './SearchResultCard'
 
 const SearchResults = ({ movies }) => (
-  <ul>
+  <div>
     { movies.map((movie, i) => {
       return (
-        <p key={i}>
-          {movie.Title}
-        </p>
+        <SearchResultCard key={i} movie={movie}/>
       )
     })}
-  </ul>
+  </div>
 )
 
 export default SearchResults
