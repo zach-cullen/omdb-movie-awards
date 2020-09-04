@@ -51,14 +51,12 @@ const SmallDisplay = styled.h4`
 const Display = (props) => {
   switch(props.size) {
     case 'x-large':
-      console.log('inside xl')
       return(
         <XLargeDisplay>
           {props.children}
         </XLargeDisplay>
       )
     case 'large':
-      console.log('inside lrg')
       return(
         <LargeDisplay>
           {props.children}
