@@ -8,8 +8,8 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background-color: ${({theme}) => theme.bg.primary};
-    color: ${({ theme }) => theme.text.primary};
+    background-color: ${props => props.theme.colors.bg.primary};
+    color: ${props => props.theme.colors.text.primary};
     transition: background-color 0.5s, color 0.5s;
   }
 `
