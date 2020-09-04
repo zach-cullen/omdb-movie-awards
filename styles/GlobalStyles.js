@@ -36,6 +36,12 @@ const GlobalStyles = createGlobalStyle`
     color: ${props => props.theme.colors.text.primary};
     transition: background-color 0.5s, color 0.5s;
   }
+
+  input {
+    border: none;
+    outline: none;
+    color: inherit;
+  }
 `
 
 export default GlobalStyles
