@@ -1,4 +1,11 @@
+const breakpoints = {
+  mobile: '720px'
+}
+
 export const lightTheme = {
+  breakpoints: {
+    ...breakpoints
+  },
   colors: {
     bg: {
       primary: '#fff',
@@ -12,6 +19,9 @@ export const lightTheme = {
 }
 
 export const darkTheme = {
+  breakpoints: {
+    ...breakpoints
+  },
   colors: {
     bg: {
       primary: '#262626',
