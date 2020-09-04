@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import FoundMovies from '../components/FoundMovies'
 import SearchForm from '../components/SearchForm'
@@ -11,19 +11,12 @@ export default function Home() {
     setSearchTerms(event.target.value)
   }
 
-  const handleSubmit = event => {
-    event.preventDefault()
-    getSearchResults()
-  }
-
   const getSearchResults = async () => {
     const requestUrl = process.env.OMDB_API_URL_BASE + process.env.OMDB_API_KEY + '&s=' + searchTerms
     const results = await (await fetch(requestUrl)).json()
     // check Response boolean string provided by api returns 'True' if movie found
     if (JSON.parse(results.Response.toLowerCase())) {
       saveSearchResults(results)
-    } else {
-      clearSearchResults()
     }
   }
 
@@ -35,6 +28,16 @@ export default function Home() {
     setFoundMovies(new Array)
   }
 
+  // automatically pull search results as searchTerms change
+  // wait for at least 3 chars since API otherwise responds w/ error: too many results
+  useEffect(() => {
+    if (searchTerms.length > 2) {
+      getSearchResults()
+    } else {
+      clearSearchResults()
+    }
+  }, [searchTerms])
+
 
   return (
     <main>
@@ -44,7 +47,6 @@ export default function Home() {
         Search for a Movie:
         <SearchForm 
           handleSearchChange={handleSearchChange}
-          handleSubmit={handleSubmit}
           searchTerms={searchTerms}
         />
       </div>
