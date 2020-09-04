@@ -35,11 +35,24 @@ const GlobalStyles = createGlobalStyle`
     background-color: ${props => props.theme.colors.bg.primary};
     color: ${props => props.theme.colors.text.primary};
     transition: background-color 0.5s, color 0.5s;
+
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+
+    @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+      font-size: 15px;
+      line-height: 20px;
+      font-weight: 400;;
+    }
   }
 
   input {
     border: none;
     outline: none;
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
     color: inherit;
   }
 `
