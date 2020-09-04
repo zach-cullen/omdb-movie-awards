@@ -1,4 +1,3 @@
-import '../styles/globals.css'
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from '../styles/GlobalStyles'
 import { lightTheme, darkTheme } from '../themes/themes'
