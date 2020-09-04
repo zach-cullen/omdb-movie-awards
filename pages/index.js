@@ -12,7 +12,7 @@ export default function Home() {
   }
 
   const getSearchResults = async () => {
-    const requestUrl = process.env.OMDB_API_URL_BASE + process.env.OMDB_API_KEY + '&s=' + searchTerms
+    const requestUrl = process.env.OMDB_API_URL_BASE + process.env.OMDB_API_KEY + '&type=movie&s=' + searchTerms
     const results = await (await fetch(requestUrl)).json()
     // check Response boolean string provided by api returns 'True' if movie found
     if (JSON.parse(results.Response.toLowerCase())) {
