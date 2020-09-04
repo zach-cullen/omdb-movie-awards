@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import SearchForm from './SearchForm'
-import FoundMovies from './FoundMovies'
+import SearchResults from './SearchResults'
 
 const Search = () => {
   const [searchTerms, setSearchTerms] = useState('')
@@ -44,7 +44,7 @@ const Search = () => {
         handleSearchChange={handleSearchChange}
         searchTerms={searchTerms}
       />
-      <FoundMovies movies={foundMovies} />
+      <SearchResults movies={foundMovies} />
     </>
   )
 }

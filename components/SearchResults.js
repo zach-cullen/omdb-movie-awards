@@ -1,5 +1,5 @@
 
-const FoundMovies = ({ movies }) => (
+const SearchResults = ({ movies }) => (
   <ul>
     { movies.map((movie, i) => {
       return (
@@ -11,4 +11,4 @@ const FoundMovies = ({ movies }) => (
   </ul>
 )
 
-export default FoundMovies
+export default SearchResults
