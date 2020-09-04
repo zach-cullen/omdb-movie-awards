@@ -1,5 +1,6 @@
-import Head from 'next/head'
 import { useState } from 'react'
+import Head from 'next/head'
+import FoundMovies from '../components/FoundMovies'
 
 export default function Home() {
   const [searchTerms, setSearchTerms] = useState('')
@@ -20,20 +21,19 @@ export default function Home() {
     // check Response boolean string provided by api returns 'True' if movie found
     if (JSON.parse(results.Response.toLowerCase())) {
       saveSearchResults(results)
-    } 
+    } else {
+      clearSearchResults()
+    }
   }
 
   const saveSearchResults = results => {
     setFoundMovies(results.Search)
   }
 
-  const renderMovieList = () => {
-    return foundMovies.map(movie => {
-      return(
-        <p key={movie.Title}>{movie.Title}</p>
-      )
-    })
+  const clearSearchResults = () => {
+    setFoundMovies(new Array)
   }
+
 
   return (
     <main>
@@ -46,9 +46,7 @@ export default function Home() {
           <input type='submit' value='Submit' />
         </form>
       </div>
-      <ul>
-        {renderMovieList()}
-      </ul>
+      <FoundMovies movies={foundMovies} />
       <div>
         Nominees:
       </div>
