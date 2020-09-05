@@ -5,7 +5,7 @@ import Search from '../components/Search'
 export default function Home() {
   return (
     <main>
-      <CustomContainer maxW='1200px' pX='30px'>
+      <CustomContainer maxW='1200px' pX='16px'>
         <Search />
       </CustomContainer>
     </main>
