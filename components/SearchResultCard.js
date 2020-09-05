@@ -3,13 +3,19 @@ import Heading from './typographic/Heading'
 import Body from './typographic/Body'
 
 const CardGrid = styled.div`
+  cursor: pointer;
   position: relative;
   padding-top: 150%;
   width: 100%;
-  background-color: ${props => props.theme.colors.bg.secondary};
   border-radius: ${props => props.theme.spacing.extraTight};
   box-sizing: border-box;
-  border: solid 2px ${props => props.theme.colors.bg.secondary};
+  border: solid 1px ${props => props.theme.colors.bg.secondary};
+
+  &:hover {
+    div {
+      opacity: 1;
+    }
+  }
 `
 
 const Poster = styled.div`
@@ -23,6 +29,7 @@ const Poster = styled.div`
   background-image: url('${props => props.imgUrl}');
   background-size: cover;
   opacity: 0.7;
+  transition: opacity 0.2s;
 `
 
 const MovieInfo = styled.div`
