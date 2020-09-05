@@ -3,7 +3,7 @@ import SearchResultCard from './SearchResultCard'
 
 const ResultsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(5, 1fr);
   grid-gap: ${props => props.theme.spacing.baseTight};
 
   @media (max-width: 720px) {
