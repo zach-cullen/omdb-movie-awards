@@ -7,7 +7,7 @@ const ResultsGrid = styled.div`
   grid-gap: ${props => props.theme.spacing.baseTight};
 
   @media (max-width: 720px) {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
 `
 
