@@ -24,7 +24,7 @@ const Poster = styled.div`
   width: 100%;
   height: 100%;
   border-radius: inherit;
-  background-color: ${props => props.theme.colors.bg.primary};
+  background-color: ${props => props.theme.colors.bg.secondary};
   box-sizing: border-box;
   background-image: url('${props => props.imgUrl}');
   background-size: cover;
