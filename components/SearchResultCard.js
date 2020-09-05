@@ -4,18 +4,23 @@ import Body from './typographic/Body'
 
 const CardGrid = styled.div`
   cursor: pointer;
-  position: relative;
-  padding-top: 150%;
-  width: 100%;
+  display: block;
   border-radius: ${props => props.theme.spacing.extraTight};
-  box-sizing: border-box;
   border: solid 1px ${props => props.theme.colors.bg.secondary};
-
   &:hover {
     div {
       opacity: 1;
     }
   }
+`
+
+const CardContent = styled.div`
+  position: relative;
+  padding-top: 150%;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 4px 4px 0 0;
+  background-color: ${props => props.theme.colors.bg.secondary};
 `
 
 const Poster = styled.div`
@@ -24,7 +29,6 @@ const Poster = styled.div`
   width: 100%;
   height: 100%;
   border-radius: inherit;
-  background-color: ${props => props.theme.colors.bg.secondary};
   box-sizing: border-box;
   background-image: url('${props => props.imgUrl}');
   background-size: cover;
@@ -45,19 +49,29 @@ const MovieInfo = styled.div`
   word-wrap: break-word;
 `
 
+const NominateButton = styled.div`
+  display: block;
+  height: 40px;
+  width: 100%;
+  background-color: ${props => props.theme.colors.bg.primary};
+  border-radius: 0 0 4px 4px;
+`
+
 const SearchResultCard = ({ movie }) => {
   return(
     <CardGrid>
-      <MovieInfo>
-        <Heading>
-          {movie.Title}
-        </Heading>
-        <Body>
-          {movie.Year}
-        </Body>
-      </MovieInfo>
-      <Poster imgUrl={movie.Poster} />
-
+      <CardContent>
+        <MovieInfo>
+          <Heading>
+            {movie.Title}
+          </Heading>
+          <Body>
+            {movie.Year}
+          </Body>
+        </MovieInfo>
+        <Poster imgUrl={movie.Poster} />
+      </CardContent>
+      <NominateButton />
     </CardGrid>
   )
 }
