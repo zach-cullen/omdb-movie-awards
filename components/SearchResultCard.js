@@ -51,10 +51,13 @@ const MovieInfo = styled.div`
 
 const NominateButton = styled.div`
   display: block;
-  height: 40px;
   width: 100%;
-  background-color: ${props => props.theme.colors.bg.primary};
+  box-sizing: border-box;
+  padding: ${props => props.theme.spacing.tight};
   border-radius: 0 0 4px 4px;
+  background-color: ${props => props.theme.colors.bg.primary};
+  color: ${props => props.theme.colors.text.secondary};
+  text-align: center;
 `
 
 const SearchResultCard = ({ movie }) => {
@@ -71,7 +74,9 @@ const SearchResultCard = ({ movie }) => {
         </MovieInfo>
         <Poster imgUrl={movie.Poster} />
       </CardContent>
-      <NominateButton />
+      <NominateButton>
+        <Heading>Nominate</Heading>
+      </NominateButton>
     </CardGrid>
   )
 }
