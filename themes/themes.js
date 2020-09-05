@@ -44,7 +44,7 @@ export const darkTheme = {
     },
     text: {
       primary: '#e6e6e6',
-      secondary: '#dedede'
+      secondary: '#727785'
     }
   }
 }
