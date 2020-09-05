@@ -9,7 +9,7 @@ const CardGrid = styled.div`
   background-color: ${props => props.theme.colors.bg.secondary};
   border-radius: ${props => props.theme.spacing.extraTight};
   box-sizing: border-box;
-  border: solid 1px ${props => props.theme.colors.bg.secondary};
+  border: solid 2px ${props => props.theme.colors.bg.secondary};
 `
 
 const Poster = styled.div`
@@ -31,7 +31,7 @@ const MovieInfo = styled.div`
   width: 100%;
   height: 100%;
   z-index: 100;
-  background-image: linear-gradient(black, transparent);
+  background-image: linear-gradient(${props => props.theme.colors.bg.primary}, transparent);
   box-sizing: border-box;
   border-radius: inherit;
   padding: ${props => props.theme.spacing.tight};
