@@ -4,6 +4,7 @@ import Body from './typographic/Body'
 import { StarOutlineMinor } from '@shopify/polaris-icons';
 
 const CardGrid = styled.div`
+  cursor: pointer;
   width: 100%;
   display: grid;
   grid-template-columns: max-content 1fr min-content;
@@ -14,6 +15,14 @@ const CardGrid = styled.div`
   &:hover {
     div {
       opacity: 1;
+    }
+
+    .nominate-button {
+      background-color: ${props => props.theme.colors.bg.secondary};
+
+      div {
+        fill: ${props => props.theme.colors.text.secondary};
+      }
     }
   }
 `
@@ -42,6 +51,8 @@ const NominateButton = styled.div`
   border-left: solid 1px ${props => props.theme.colors.bg.secondary};
   border-bottom: solid 1px ${props => props.theme.colors.bg.secondary};
   border-bottom-left-radius: inherit;
+  border-top-right-radius: inherit;
+  transition: background-color 0.2s;
 `
 
 const IconWrapper = styled.div`
@@ -59,7 +70,7 @@ const SearchResultCard = ({ movie }) => {
         <Body>{movie.Title}</Body>
         <SubHeading>{movie.Year}</SubHeading>
       </MovieInfo>
-      <NominateButton>
+      <NominateButton className='nominate-button'>
         <IconWrapper>
           <StarOutlineMinor />
         </IconWrapper>
