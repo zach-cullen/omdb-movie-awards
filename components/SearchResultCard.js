@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import SubHeading from './typographic/SubHeading'
 import Body from './typographic/Body'
-import { StarOutlineMinor } from '@shopify/polaris-icons';
+import { StarOutlineMinor, StarFilledMinor } from '@shopify/polaris-icons';
 
 const CardGrid = styled.div`
   cursor: pointer;
@@ -50,6 +50,7 @@ const NominateButton = styled.div`
   border-left: solid 1px ${props => props.theme.colors.bg.secondary};
   border-bottom: solid 1px ${props => props.theme.colors.bg.secondary};
   border-bottom-left-radius: inherit;
+  background-color: ${props => props.isNominated ? props.theme.colors.bg.secondary : 'inherit'};
   transition: background-color 0.2s;
 `
 
@@ -57,12 +58,19 @@ const IconWrapper = styled.div`
   width: 20px;
   height: 20px;
   margin: 8px auto;
-  fill: ${props => props.theme.colors.text.secondary};
+  fill: ${props => props.isNominated ? props.theme.colors.text.primary : props.theme.colors.text.secondary};
 `
 
-const SearchResultCard = ({ movie, addNominee }) => {
+const SearchResultCard = ({ movie, addNominee, isNominated }) => {
   const handleClick = () => {
     addNominee(movie)
+  }
+
+  const renderNominatedIcon = isNominated => {
+    if (isNominated) {
+      console.log(movie.Title, 'is nominated')
+    }
+    return isNominated ? <StarFilledMinor /> : <StarOutlineMinor />
   }
 
   return(
@@ -74,9 +82,13 @@ const SearchResultCard = ({ movie, addNominee }) => {
         <Body>{movie.Title}</Body>
         <SubHeading>{movie.Year}</SubHeading>
       </MovieInfo>
-      <NominateButton className='nominate-button'>
-        <IconWrapper>
-          <StarOutlineMinor />
+      <NominateButton 
+        isNominated={isNominated}
+        className='nominate-button'>
+        <IconWrapper
+          isNominated={isNominated}
+        >
+          {renderNominatedIcon(isNominated)}
         </IconWrapper>
       </NominateButton>
     </CardGrid>
