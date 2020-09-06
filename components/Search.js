@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import SearchForm from './SearchForm'
 import SearchResults from './SearchResults'
 
-const Search = ({ addNominee }) => {
+const Search = ({ addNominee, nomineeIds }) => {
   const [searchTerms, setSearchTerms] = useState('')
   const [foundMovies, setFoundMovies] = useState([])
 
@@ -46,6 +46,7 @@ const Search = ({ addNominee }) => {
       />
       <SearchResults 
         addNominee={addNominee}
+        nomineeIds={nomineeIds}
         movies={foundMovies} 
       />
     </>
