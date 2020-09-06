@@ -6,13 +6,17 @@ import Search from '../components/Search'
 
 export default function Home() {
   const [nominees, setNominees] = useState([])
+  const [nomineeIds, setNomineeIds] = useState([])
 
   const addNominee = movie => {
-    if (nominees.length < 5) {
-      setNominees(nominees.concat(movie))
-    } else {
+    if (nomineeIds.includes(movie.imdbID)) return // prevent duplicate nominations
+    if (nominees.length === 5) {
       nomineesFull()
+      return
     }
+
+    setNominees(nominees.concat(movie))
+    setNomineeIds(nomineeIds.concat(movie.imdbID))
   }
 
   const nomineesFull = () => {
