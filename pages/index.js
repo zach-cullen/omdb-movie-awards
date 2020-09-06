@@ -30,7 +30,10 @@ export default function Home() {
           nominees={nominees}
           nomineeIds={nomineeIds}
         />
-        <Search addNominee={addNominee} />
+        <Search 
+          addNominee={addNominee} 
+          nomineeIds={nomineeIds}
+        />
       </CustomContainer>
     </main>
   )
