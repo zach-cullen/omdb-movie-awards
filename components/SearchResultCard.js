@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 import Heading from './typographic/Heading'
 import Body from './typographic/Body'
+import { StarOutlineMinor } from '@shopify/polaris-icons';
 
 const CardGrid = styled.div`
-  cursor: pointer;
+  cursor: default;
   display: block;
   border-radius: ${props => props.theme.spacing.extraTight};
   border: solid 1px ${props => props.theme.colors.bg.secondary};
@@ -50,14 +51,47 @@ const MovieInfo = styled.div`
 `
 
 const NominateButton = styled.div`
+  cursor: pointer;
   display: block;
   width: 100%;
   box-sizing: border-box;
-  padding: ${props => props.theme.spacing.tight};
+  padding: ${props => props.theme.spacing.baseTight};
   border-radius: 0 0 4px 4px;
   background-color: ${props => props.theme.colors.bg.primary};
   color: ${props => props.theme.colors.text.secondary};
-  text-align: center;
+  text-align: left;
+  transition: background-color 0.3s, color 0.2s, fill 0.2s;
+
+  &:hover {
+    background-color: ${props => props.theme.colors.bg.secondary};
+    /* color: ${props => props.theme.colors.text.primary};
+
+    div {
+      fill: ${props => props.theme.colors.text.primary};
+    } */
+  }
+`
+
+const InnerButton = styled.div`
+  height: 20px;
+  width: 100px;
+  margin: 0 auto;
+  opacity: 0.75;
+  transition: opacity 0.2s;
+
+  .button-text {
+    display: block;
+    float: left;
+    padding-left: 8px;
+    line-height: 20px;
+  }
+`
+
+const IconWrapper = styled.div`
+  display: block;
+  float: left;
+  width: 20px;
+  fill: ${props => props.theme.colors.text.secondary};
 `
 
 const SearchResultCard = ({ movie }) => {
@@ -75,7 +109,12 @@ const SearchResultCard = ({ movie }) => {
         <Poster imgUrl={movie.Poster} />
       </CardContent>
       <NominateButton>
-        <Heading>Nominate</Heading>
+        <InnerButton>
+          <IconWrapper>
+            <StarOutlineMinor />
+          </IconWrapper>
+          <Heading className='button-text'>Nominate</Heading>
+        </InnerButton>
       </NominateButton>
     </CardGrid>
   )
