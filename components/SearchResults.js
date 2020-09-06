@@ -11,18 +11,25 @@ const ResultsGrid = styled.div`
   }
 `
 
-const SearchResults = ({ movies, addNominee }) => (
-  <ResultsGrid>
-    { movies.map((movie, i) => {
-      return (
-        <SearchResultCard 
-          key={i} 
-          movie={movie}
-          addNominee={addNominee}
-        />
-      )
-    })}
-  </ResultsGrid>
-)
+const SearchResults = ({ addNominee, nomineeIds, movies }) => {
+  const isNominated = movie => {
+    return nomineeIds.includes(movie.imdbID)
+  }
+
+  return(
+    <ResultsGrid>
+      { movies.map((movie, i) => {
+        return (
+          <SearchResultCard 
+            key={i} 
+            movie={movie}
+            addNominee={addNominee}
+            isNominated={isNominated(movie)}
+          />
+        )
+      })}
+    </ResultsGrid>
+  )
+}
 
 export default SearchResults
