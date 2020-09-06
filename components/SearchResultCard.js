@@ -60,9 +60,15 @@ const IconWrapper = styled.div`
   fill: ${props => props.theme.colors.text.secondary};
 `
 
-const SearchResultCard = ({ movie }) => {
+const SearchResultCard = ({ movie, addNominee }) => {
+  const handleClick = () => {
+    addNominee(movie)
+  }
+
   return(
-    <CardGrid>
+    <CardGrid
+      onClick={handleClick}
+    >
       <PosterThumb imgUrl={movie.Poster} />
       <MovieInfo>
         <Body>{movie.Title}</Body>

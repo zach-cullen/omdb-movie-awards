@@ -11,11 +11,15 @@ const ResultsGrid = styled.div`
   }
 `
 
-const SearchResults = ({ movies }) => (
+const SearchResults = ({ movies, addNominee }) => (
   <ResultsGrid>
     { movies.map((movie, i) => {
       return (
-        <SearchResultCard key={i} movie={movie}/>
+        <SearchResultCard 
+          key={i} 
+          movie={movie}
+          addNominee={addNominee}
+        />
       )
     })}
   </ResultsGrid>
