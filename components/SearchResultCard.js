@@ -5,9 +5,8 @@ import { StarOutlineMinor } from '@shopify/polaris-icons';
 
 const CardGrid = styled.div`
   width: 100%;
-  /* height: 72px; */
   display: grid;
-  grid-template-columns: max-content 1fr;
+  grid-template-columns: max-content 1fr min-content;
   grid-column-gap: ${props => props.theme.spacing.baseTight};
   border: 1px solid ${props => props.theme.colors.bg.secondary};
   border-radius: ${props => props.theme.spacing.tight};
@@ -37,11 +36,19 @@ const MovieInfo = styled.div`
   padding: ${props => props.theme.spacing.tight};
 `
 
+const NominateButton = styled.div`
+  width: 36px;
+  height: 36px;
+  border-left: solid 1px ${props => props.theme.colors.bg.secondary};
+  border-bottom: solid 1px ${props => props.theme.colors.bg.secondary};
+  border-bottom-left-radius: inherit;
+`
+
 const IconWrapper = styled.div`
-  display: block;
-  float: left;
   width: 20px;
-  fill: ${props => props.theme.colors.text.secondary};
+  height: 20px;
+  margin: 8px auto;
+  fill: ${props => props.theme.colors.bg.secondary};
 `
 
 const SearchResultCard = ({ movie }) => {
@@ -52,6 +59,11 @@ const SearchResultCard = ({ movie }) => {
         <Body>{movie.Title}</Body>
         <SubHeading>{movie.Year}</SubHeading>
       </MovieInfo>
+      <NominateButton>
+        <IconWrapper>
+          <StarOutlineMinor />
+        </IconWrapper>
+      </NominateButton>
     </CardGrid>
   )
 }
