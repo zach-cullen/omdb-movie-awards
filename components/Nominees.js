@@ -22,7 +22,7 @@ const Nominees = ({ nominees }) => {
       <NomineesGrid>
         {nominees.map(movie => {
           return(
-            <NomineeCard movie={movie} />
+            <NomineeCard key={movie.imdbID} movie={movie} />
           )
         })}
       </NomineesGrid>
