@@ -26,7 +26,10 @@ export default function Home() {
   return (
     <main>
       <CustomContainer maxW='1200px' pX='16px' pY='16px'>
-        <Nominees />
+        <Nominees 
+          nominees={nominees}
+          nomineeIds={nomineeIds}
+        />
         <Search addNominee={addNominee} />
       </CustomContainer>
     </main>
