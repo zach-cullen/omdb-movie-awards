@@ -4,7 +4,11 @@ import SearchResultCard from './SearchResultCard'
 const ResultsGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: ${props => props.theme.spacing.base};
+  grid-gap: ${props => props.theme.spacing.baseTight};
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    grid-template-columns: 1fr;
+  }
 `
 
 const SearchResults = ({ movies }) => (
