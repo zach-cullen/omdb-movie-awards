@@ -9,6 +9,8 @@ const CardGrid = styled.div`
   display: grid;
   grid-template-columns: max-content 1fr min-content;
   grid-column-gap: ${props => props.theme.spacing.baseTight};
+  box-sizing: border-box;
+  overflow: hidden;
   border: 1px solid ${props => props.theme.colors.bg.secondary};
   border-radius: ${props => props.theme.spacing.tight};
 
@@ -31,7 +33,8 @@ const PosterThumb = styled.div`
   width: 48px;
   height: 100%;
   min-height: 72px;
-  border-radius: inherit;
+  border-top-left-radius: inherit;
+  border-bottom-left-radius: inherit;
   background-color: ${props => props.theme.colors.bg.secondary};
   background-image: url('${props => props.imgUrl}');
   background-size: cover;
@@ -51,7 +54,6 @@ const NominateButton = styled.div`
   border-left: solid 1px ${props => props.theme.colors.bg.secondary};
   border-bottom: solid 1px ${props => props.theme.colors.bg.secondary};
   border-bottom-left-radius: inherit;
-  border-top-right-radius: inherit;
   transition: background-color 0.2s;
 `
 
