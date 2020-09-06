@@ -6,13 +6,9 @@ import { StarOutlineMinor } from '@shopify/polaris-icons';
 const CardGrid = styled.div`
   cursor: default;
   display: block;
+  box-sizing: border-box;
   border-radius: ${props => props.theme.spacing.extraTight};
   border: solid 1px ${props => props.theme.colors.bg.secondary};
-  &:hover {
-    div {
-      opacity: 1;
-    }
-  }
 `
 
 const CardContent = styled.div`
@@ -33,7 +29,6 @@ const Poster = styled.div`
   box-sizing: border-box;
   background-image: url('${props => props.imgUrl}');
   background-size: cover;
-  opacity: 0.7;
   transition: opacity 0.2s;
 `
 
@@ -51,47 +46,9 @@ const MovieInfo = styled.div`
 `
 
 const NominateButton = styled.div`
-  cursor: pointer;
-  display: block;
   width: 100%;
   box-sizing: border-box;
   padding: ${props => props.theme.spacing.baseTight};
-  border-radius: 0 0 4px 4px;
-  background-color: ${props => props.theme.colors.bg.primary};
-  color: ${props => props.theme.colors.text.secondary};
-  text-align: left;
-  transition: background-color 0.3s, color 0.2s, fill 0.2s;
-
-  &:hover {
-    background-color: ${props => props.theme.colors.bg.secondary};
-    /* color: ${props => props.theme.colors.text.primary};
-
-    div {
-      fill: ${props => props.theme.colors.text.primary};
-    } */
-  }
-`
-
-const InnerButton = styled.div`
-  height: 20px;
-  width: 100px;
-  margin: 0 auto;
-  opacity: 0.75;
-  transition: opacity 0.2s;
-
-  .button-text {
-    display: block;
-    float: left;
-    padding-left: 8px;
-    line-height: 20px;
-  }
-`
-
-const IconWrapper = styled.div`
-  display: block;
-  float: left;
-  width: 20px;
-  fill: ${props => props.theme.colors.text.secondary};
 `
 
 const NomineeCard = ({ movie }) => {
@@ -109,12 +66,9 @@ const NomineeCard = ({ movie }) => {
         <Poster imgUrl={movie.Poster} />
       </CardContent>
       <NominateButton>
-        <InnerButton>
-          <IconWrapper>
-            <StarOutlineMinor />
-          </IconWrapper>
-          <Heading className='button-text'>Nominate</Heading>
-        </InnerButton>
+        <Body className='button-text'>
+          Remove
+        </Body>
       </NominateButton>
     </CardGrid>
   )
