@@ -21,10 +21,6 @@ const CardGrid = styled.div`
 
     .nominate-button {
       background-color: ${props => props.theme.colors.bg.secondary};
-
-      div {
-        fill: ${props => props.theme.colors.text.secondary};
-      }
     }
   }
 `
@@ -61,7 +57,7 @@ const IconWrapper = styled.div`
   width: 20px;
   height: 20px;
   margin: 8px auto;
-  fill: ${props => props.theme.colors.bg.secondary};
+  fill: ${props => props.theme.colors.text.secondary};
 `
 
 const SearchResultCard = ({ movie }) => {
