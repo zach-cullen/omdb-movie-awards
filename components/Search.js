@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import SearchForm from './SearchForm'
 import SearchResults from './SearchResults'
+import Display from './typographic/Display'
 
 const Search = ({ addNominee, nomineeIds }) => {
   const [searchTerms, setSearchTerms] = useState('')
@@ -39,7 +40,9 @@ const Search = ({ addNominee, nomineeIds }) => {
   
   return(
     <>
-      Search for a Movie:
+      <Display size='small'>
+        Search for a Movie:
+      </Display>
       <SearchForm 
         handleSearchChange={handleSearchChange}
         searchTerms={searchTerms}
