@@ -3,7 +3,7 @@ import SearchForm from './SearchForm'
 import SearchResults from './SearchResults'
 import Display from './typographic/Display'
 
-const Search = ({ addNominee, nomineeIds }) => {
+const Search = ({ addNominee, nomineeIds, removeNomineeById }) => {
   const [searchTerms, setSearchTerms] = useState('')
   const [foundMovies, setFoundMovies] = useState([])
 
@@ -51,6 +51,7 @@ const Search = ({ addNominee, nomineeIds }) => {
         addNominee={addNominee}
         nomineeIds={nomineeIds}
         movies={foundMovies} 
+        removeNomineeById={removeNomineeById}
       />
     </>
   )

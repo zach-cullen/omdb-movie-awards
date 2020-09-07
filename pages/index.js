@@ -45,6 +45,7 @@ export default function Home() {
         <Search 
           addNominee={addNominee} 
           nomineeIds={nomineeIds}
+          removeNomineeById={removeNomineeById}
         />
       </CustomContainer>
     </main>

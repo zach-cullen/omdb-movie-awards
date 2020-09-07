@@ -61,9 +61,13 @@ const IconWrapper = styled.div`
   fill: ${props => props.isNominated ? props.theme.colors.text.primary : props.theme.colors.text.secondary};
 `
 
-const SearchResultCard = ({ movie, addNominee, isNominated }) => {
+const SearchResultCard = ({ movie, addNominee, isNominated, removeNomineeById }) => {
   const handleClick = () => {
-    addNominee(movie)
+    if (isNominated) {
+      removeNomineeById(movie.imdbID)
+    } else {
+      addNominee(movie)
+    }
   }
 
   const renderNominatedIcon = isNominated => {
