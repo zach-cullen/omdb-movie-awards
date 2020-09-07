@@ -17,6 +17,8 @@ const GlobalStyles = createGlobalStyle`
 
     /* Enable kerning and optional ligatures */
     text-rendering: optimizeLegibility;
+
+    scroll-behavior: smooth;
   }
 
   /**
