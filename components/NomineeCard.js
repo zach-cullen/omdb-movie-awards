@@ -26,6 +26,7 @@ const CardContent = styled.div`
   width: 100%;
   box-sizing: border-box;
   border-radius: 4px 4px 0 0;
+  overflow: hidden;
   background-color: ${props => props.theme.colors.bg.secondary};
 `
 
@@ -34,7 +35,6 @@ const Poster = styled.div`
   top: 0;
   width: 100%;
   height: 100%;
-  border-radius: inherit;
   box-sizing: border-box;
   background-image: url('${props => props.imgUrl}');
   background-size: cover;
@@ -49,7 +49,6 @@ const MovieInfo = styled.div`
   z-index: 100;
   background-image: linear-gradient(${props => props.theme.colors.bg.primary}, transparent);
   box-sizing: border-box;
-  border-radius: inherit;
   padding: ${props => props.theme.spacing.tight};
   word-wrap: break-word;
 `
