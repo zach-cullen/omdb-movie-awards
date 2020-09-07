@@ -67,9 +67,6 @@ const SearchResultCard = ({ movie, addNominee, isNominated }) => {
   }
 
   const renderNominatedIcon = isNominated => {
-    if (isNominated) {
-      console.log(movie.Title, 'is nominated')
-    }
     return isNominated ? <StarFilledMinor /> : <StarOutlineMinor />
   }
 
