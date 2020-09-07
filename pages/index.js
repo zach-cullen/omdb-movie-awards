@@ -23,6 +23,12 @@ export default function Home() {
     alert('You may only nominate 5 movies, you may remove a nominee if you wish to change your selection')
   }
 
+  const removeNomineeById = movieId => {
+    setNominees(nominees.filter(movie => movie.imdbID != movieId))
+    setNomineeIds(nomineeIds.filter(id => id != movieId))
+    returnToPageTop()
+  }
+
   const returnToPageTop = () => {
     document.body.scrollTop = 0 // Safari
     document.documentElement.scrollTop = 0; // Chrome, Firefox, IE
@@ -34,6 +40,7 @@ export default function Home() {
         <Nominees 
           nominees={nominees}
           nomineeIds={nomineeIds}
+          removeNomineeById={removeNomineeById}
         />
         <Search 
           addNominee={addNominee} 
