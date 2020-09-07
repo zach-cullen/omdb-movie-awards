@@ -9,7 +9,7 @@ const NomineesGrid = styled.div`
   margin-bottom: ${props => props.theme.spacing.extraLoose};
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-gap: ${props => props.theme.spacing.tight};
+  grid-gap: ${props => props.theme.spacing.baseTight};
 
   @media (max-width: 600px) {
     grid-template-columns: repeat(3, 1fr);
@@ -17,7 +17,6 @@ const NomineesGrid = styled.div`
 `
 
 const Nominees = ({ nominees }) => {
-
   return(
     <>
       <Display size='medium'>
