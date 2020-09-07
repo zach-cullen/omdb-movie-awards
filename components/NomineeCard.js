@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Heading from './typographic/Heading'
 import Body from './typographic/Body'
@@ -9,6 +10,14 @@ const CardGrid = styled.div`
   box-sizing: border-box;
   border-radius: ${props => props.theme.spacing.extraTight};
   border: solid 1px ${props => props.theme.colors.bg.secondary};
+  width: ${props => props.loadFirst ? '100%' : '20%'};
+  height: ${props => props.loadFirst ? '100%' : '20%'};
+  transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+
+  .card-text {
+    opacity: ${props => props.loadSecond ? 1 : 0};
+    transition: opacity 0.5s;
+  }
 `
 
 const CardContent = styled.div`
@@ -52,21 +61,37 @@ const NominateButton = styled.div`
 `
 
 const NomineeCard = ({ movie }) => {
+  const [loadFirst, setLoadFirst] = useState(false);
+  const [loadSecond, setLoadSecond] = useState(false);
+
+  useEffect(() => {
+    setLoadFirst(true);
+  }, [loadFirst])
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoadSecond(true)
+    }, 250)
+  }, [loadSecond])
+
   return(
-    <CardGrid>
+    <CardGrid 
+      loadFirst={loadFirst}
+      loadSecond={loadSecond}
+    >
       <CardContent>
         <MovieInfo>
-          <Heading>
+          <Heading className='card-text'>
             {movie.Title}
           </Heading>
-          <Body>
+          <Body className='card-text'>
             {movie.Year}
           </Body>
         </MovieInfo>
         <Poster imgUrl={movie.Poster} />
       </CardContent>
       <NominateButton>
-        <Body className='button-text'>
+        <Body className='card-text'>
           Remove
         </Body>
       </NominateButton>
