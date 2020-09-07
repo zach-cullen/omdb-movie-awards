@@ -13,6 +13,7 @@ const CardGrid = styled.div`
   overflow: hidden;
   border: 1px solid ${props => props.theme.colors.bg.secondary};
   border-radius: ${props => props.theme.spacing.tight};
+  background-color: ${props => props.theme.colors.bg.primary};
 
   &:hover {
     div {
