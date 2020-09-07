@@ -58,6 +58,7 @@ const RemoveButton = styled.div`
   width: 100%;
   box-sizing: border-box;
   padding: ${props => props.theme.spacing.baseTight};
+  background-color: ${props => props.theme.colors.bg.primary};
   transition: background-color 0.2s;
 
   &:hover {
