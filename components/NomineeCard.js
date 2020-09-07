@@ -53,13 +53,19 @@ const MovieInfo = styled.div`
   word-wrap: break-word;
 `
 
-const NominateButton = styled.div`
+const RemoveButton = styled.div`
+  cursor: pointer;
   width: 100%;
   box-sizing: border-box;
   padding: ${props => props.theme.spacing.baseTight};
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: ${props => props.theme.colors.bg.secondary};
+  }
 `
 
-const NomineeCard = ({ movie }) => {
+const NomineeCard = ({ movie, removeNomineeById }) => {
   const [loadFirst, setLoadFirst] = useState(false);
   const [loadSecond, setLoadSecond] = useState(false);
 
@@ -72,6 +78,10 @@ const NomineeCard = ({ movie }) => {
       setLoadSecond(true)
     }, 250)
   }, [loadSecond])
+
+  const handleRemoveButtonClick = () => {
+    removeNomineeById(movie.imdbID)
+  }
 
   return(
     <CardGrid 
@@ -89,11 +99,13 @@ const NomineeCard = ({ movie }) => {
         </MovieInfo>
         <Poster imgUrl={movie.Poster} />
       </CardContent>
-      <NominateButton>
+      <RemoveButton
+        onClick={handleRemoveButtonClick}
+      >
         <Body className='card-text'>
           Remove
         </Body>
-      </NominateButton>
+      </RemoveButton>
     </CardGrid>
   )
 }
