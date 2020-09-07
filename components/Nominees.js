@@ -16,7 +16,7 @@ const NomineesGrid = styled.div`
   }
 `
 
-const Nominees = ({ nominees }) => {
+const Nominees = ({ nominees, removeNomineeById }) => {
   return(
     <>
       <Display size='medium'>
@@ -25,7 +25,11 @@ const Nominees = ({ nominees }) => {
       <NomineesGrid>
         {nominees.map(movie => {
           return(
-            <NomineeCard key={movie.imdbID} movie={movie} />
+            <NomineeCard 
+              key={movie.imdbID}
+              movie={movie}
+              removeNomineeById={removeNomineeById}
+            />
           )
         })}
       </NomineesGrid>
