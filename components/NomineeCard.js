@@ -10,13 +10,13 @@ const CardGrid = styled.div`
   box-sizing: border-box;
   border-radius: ${props => props.theme.spacing.extraTight};
   border: solid 1px ${props => props.theme.colors.bg.secondary};
-  width: ${props => props.loadFirst ? '100%' : '20%'};
-  height: ${props => props.loadFirst ? '100%' : '20%'};
+  width: ${props => props.loadFirst ? '100%' : '0%'};
+  height: ${props => props.loadFirst ? '100%' : '0%'};
   transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
 
   .card-text {
     opacity: ${props => props.loadSecond ? 1 : 0};
-    transition: opacity 0.5s;
+    transition: ${props => props.unMount ? '' : 'opacity 0.5s'};
   }
 `
 
@@ -69,25 +69,34 @@ const RemoveButton = styled.div`
 const NomineeCard = ({ movie, removeNomineeById }) => {
   const [loadFirst, setLoadFirst] = useState(false);
   const [loadSecond, setLoadSecond] = useState(false);
+  const [unMount, setUnmount] = useState(false);
 
   useEffect(() => {
     setLoadFirst(true);
-  }, [loadFirst])
+  }, [])
 
   useEffect(() => {
     setTimeout(() => {
       setLoadSecond(true)
     }, 250)
-  }, [loadSecond])
+  }, [])
 
   const handleRemoveButtonClick = () => {
-    removeNomineeById(movie.imdbID)
+    // initiate css transitions
+    setUnmount(true)
+    setLoadFirst(false)
+    setLoadSecond(false)
+    // delete component after animations have time to execute
+    setTimeout(() => {
+      removeNomineeById(movie.imdbID)
+    }, 300)
   }
 
   return(
     <CardGrid 
       loadFirst={loadFirst}
       loadSecond={loadSecond}
+      unMount={unMount}
     >
       <CardContent>
         <MovieInfo>
