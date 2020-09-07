@@ -1,10 +1,12 @@
 import styled from 'styled-components'
 import NomineeCard from './NomineeCard'
+import Display from './typographic/Display'
 
 const NomineesGrid = styled.div`
   min-height: 100px;
   width: 100%;
-  margin: ${props => props.theme.spacing.baseTight} 0;
+  margin-top: ${props => props.theme.spacing.loose};
+  margin-bottom: ${props => props.theme.spacing.extraLoose};
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: ${props => props.theme.spacing.tight};
@@ -18,7 +20,9 @@ const Nominees = ({ nominees }) => {
 
   return(
     <>
-      My Nominees:
+      <Display size='medium'>
+        My Nominees:
+      </Display>
       <NomineesGrid>
         {nominees.map(movie => {
           return(
