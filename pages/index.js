@@ -14,13 +14,18 @@ export default function Home() {
       nomineesFull()
       return
     }
-
     setNominees(nominees.concat(movie))
     setNomineeIds(nomineeIds.concat(movie.imdbID))
+    returnToPageTop()
   }
 
   const nomineesFull = () => {
     alert('You may only nominate 5 movies, you may remove a nominee if you wish to change your selection')
+  }
+
+  const returnToPageTop = () => {
+    document.body.scrollTop = 0 // Safari
+    document.documentElement.scrollTop = 0; // Chrome, Firefox, IE
   }
 
   return (
