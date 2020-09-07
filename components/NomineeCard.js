@@ -6,6 +6,7 @@ import { StarOutlineMinor } from '@shopify/polaris-icons';
 
 const CardGrid = styled.div`
   cursor: default;
+  overflow: hidden;
   display: block;
   box-sizing: border-box;
   border-radius: ${props => props.theme.spacing.extraTight};
@@ -26,7 +27,6 @@ const CardContent = styled.div`
   width: 100%;
   box-sizing: border-box;
   border-radius: 4px 4px 0 0;
-  overflow: hidden;
   background-color: ${props => props.theme.colors.bg.secondary};
 `
 
