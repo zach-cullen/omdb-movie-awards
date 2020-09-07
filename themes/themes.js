@@ -40,7 +40,7 @@ export const darkTheme = {
   colors: {
     bg: {
       primary: '#0d0f14',
-      secondary: '#33353b'
+      secondary: '#2e3036'
     },
     text: {
       primary: '#e6e6e6',
