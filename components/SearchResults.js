@@ -11,7 +11,7 @@ const ResultsGrid = styled.div`
   }
 `
 
-const SearchResults = ({ addNominee, nomineeIds, movies }) => {
+const SearchResults = ({ addNominee, nomineeIds, movies, removeNomineeById }) => {
   const isNominated = movie => {
     return nomineeIds.includes(movie.imdbID)
   }
@@ -25,6 +25,7 @@ const SearchResults = ({ addNominee, nomineeIds, movies }) => {
             movie={movie}
             addNominee={addNominee}
             isNominated={isNominated(movie)}
+            removeNomineeById={removeNomineeById}
           />
         )
       })}
