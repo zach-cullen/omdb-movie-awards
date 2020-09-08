@@ -6,7 +6,6 @@ import Display from './typographic/Display'
 
 const SearchContainer = styled.div`
   padding-top: ${props => props.theme.spacing.extraLoose};
-  padding-bottom: 100px;
 `
 
 const Search = ({ addNominee, nomineeIds, removeNomineeById }) => {
