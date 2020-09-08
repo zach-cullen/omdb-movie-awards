@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import ShoppiesLogoSVG from './ShoppiesLogoSVG'
 import Display from './typographic/Display'
+import { TickMinor } from '@shopify/polaris-icons'
 
 const WelcomeContainer = styled.div`
   width: 100%;
@@ -44,6 +45,29 @@ const CounterText = styled.div`
   color: ${props => props.theme.colors.brand.primary};
 `
 
+const IconWrapper = styled.div`
+  height: 24px;
+  width: 24px;
+  padding-top: 4px;
+  fill: ${props => props.theme.colors.brand.primary};
+`
+
+const renderCounter = nomineeCount => {
+  if (nomineeCount === 5) {
+    return(
+      <IconWrapper>
+        <TickMinor />
+      </IconWrapper>
+    )
+  } else {
+    return(
+      <>
+        &#215; {nomineeCount}
+      </>
+    )
+  }
+}
+
 const HomeBanner = ({ nomineeCount }) => {
   return(
     <WelcomeContainer>
@@ -57,7 +81,7 @@ const HomeBanner = ({ nomineeCount }) => {
           <ShoppiesLogoSVG fill='inherit' />
         </LogoWrapper>
         <CounterText>
-          {nomineeCount} / 5
+          {renderCounter(nomineeCount)}
         </CounterText>
       </NomineeCounter>
     </WelcomeContainer>
