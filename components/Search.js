@@ -21,7 +21,7 @@ const Search = ({ addNominee, nomineeIds, removeNomineeById }) => {
   }
 
   const getSearchResults = async () => {
-    const requestUrl = process.env.OMDB_API_URL_BASE + process.env.OMDB_API_KEY + '&type=movie&s=' + searchTerms
+    const requestUrl = 'https://www.omdbapi.com/?&apikey=' + process.env.OMDB_API_KEY + '&type=movie&s=' + searchTerms
     const results = await (await fetch(requestUrl)).json()
     // check Response boolean string provided by api returns 'True' if movie found
     if (JSON.parse(results.Response.toLowerCase())) {
