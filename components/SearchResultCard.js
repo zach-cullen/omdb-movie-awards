@@ -41,6 +41,7 @@ const PosterThumb = styled.div`
 `
 
 const MovieInfo = styled.div`
+  text-align: left;
   box-sizing: border-box;
   padding: ${props => props.theme.spacing.tight};
 `
