@@ -4,6 +4,7 @@ import PageBackground from '../components/PageBackground'
 import CustomContainer from '../components/CustomContainer'
 import Nominees from '../components/Nominees'
 import Search from '../components/Search'
+import HomeBanner from '../components/HomeBanner'
 
 export default function Home() {
   const [nominees, setNominees] = useState([])
@@ -39,6 +40,7 @@ export default function Home() {
     <main>
       <PageBackground>
         <CustomContainer maxW='1200px' pX='16px' pY='16px'>
+          <HomeBanner />
           <Nominees 
             nominees={nominees}
             nomineeIds={nomineeIds}
