@@ -59,7 +59,7 @@ const IconWrapper = styled.div`
   width: 20px;
   height: 20px;
   margin: 8px auto;
-  fill: ${props => props.isNominated ? props.theme.colors.text.primary : props.theme.colors.text.secondary};
+  fill: ${props => props.isNominated ? props.theme.colors.brand.primary : props.theme.colors.text.secondary};
 `
 
 const SearchResultCard = ({ movie, addNominee, isNominated, removeNomineeById }) => {
