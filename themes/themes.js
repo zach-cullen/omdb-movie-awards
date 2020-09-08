@@ -26,6 +26,9 @@ export const lightTheme = {
     text: {
       primary: '#262626',
       secondary: '#404040'
+    },
+    brand: {
+      primary: '#ab9b5e'
     }
   }
 }
@@ -45,6 +48,9 @@ export const darkTheme = {
     text: {
       primary: '#e6e6e6',
       secondary: '#727785'
+    },
+    brand: {
+      primary: '#c7b058'
     }
   }
 }
