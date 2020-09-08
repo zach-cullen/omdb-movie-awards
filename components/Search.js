@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react'
+import styled from 'styled-components'
 import SearchForm from './SearchForm'
 import SearchResults from './SearchResults'
 import Display from './typographic/Display'
+
+const SearchContainer = styled.div`
+`
 
 const Search = ({ addNominee, nomineeIds, removeNomineeById }) => {
   const [searchTerms, setSearchTerms] = useState('')
@@ -9,6 +13,10 @@ const Search = ({ addNominee, nomineeIds, removeNomineeById }) => {
 
   const handleSearchChange = event => {
     setSearchTerms(event.target.value)
+  }
+
+  const resetSearchTerms = () => {
+    setSearchTerms('')
   }
 
   const getSearchResults = async () => {
@@ -39,12 +47,14 @@ const Search = ({ addNominee, nomineeIds, removeNomineeById }) => {
   }, [searchTerms])
   
   return(
-    <>
+    <SearchContainer>
+
       <Display size='small'>
         Search for a Movie:
       </Display>
       <SearchForm 
         handleSearchChange={handleSearchChange}
+        resetSearchTerms={resetSearchTerms}
         searchTerms={searchTerms}
       />
       <SearchResults 
@@ -53,7 +63,7 @@ const Search = ({ addNominee, nomineeIds, removeNomineeById }) => {
         movies={foundMovies} 
         removeNomineeById={removeNomineeById}
       />
-    </>
+    </SearchContainer>
   )
 }
 
