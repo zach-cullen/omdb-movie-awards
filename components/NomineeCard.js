@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Heading from './typographic/Heading'
 import Body from './typographic/Body'
-import { StarOutlineMinor } from '@shopify/polaris-icons';
+import { CancelSmallMinor, HorizontalDotsMinor } from '@shopify/polaris-icons';
 
 const CardGrid = styled.div`
   cursor: default;
@@ -46,23 +46,42 @@ const MovieInfo = styled.div`
   bottom: 0;
   width: 100%;
   height: 100%;
-  z-index: 100;
+  z-index: 1;
   background-image: linear-gradient(${props => props.theme.colors.bg.primary}, transparent);
   box-sizing: border-box;
   padding: ${props => props.theme.spacing.tight};
   word-wrap: break-word;
 `
 
+const ButtonsContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+`
+
+const ImdbLink = styled.div`
+  div {
+    float: left;
+  }
+`
+
 const RemoveButton = styled.div`
+  div {
+    float: right;
+  }
+`
+
+const IconWrapper = styled.div`
   cursor: pointer;
-  width: 100%;
-  box-sizing: border-box;
-  padding: ${props => props.theme.spacing.baseTight};
+  width: 20px;
+  height: 20px;
+  padding: ${props => props.theme.spacing.tight};
   background-color: ${props => props.theme.colors.bg.primary};
-  transition: background-color 0.2s;
+  fill: ${props => props.theme.colors.text.secondary};
+  transition: background-color 0.2s, fill 0.2s; 
 
   &:hover {
-    background-color: ${props => props.theme.colors.bg.secondary};
+    /* background-color: ${props => props.theme.colors.bg.secondary}; */
+    fill: ${props => props.theme.colors.text.primary};
   }
 `
 
@@ -109,13 +128,20 @@ const NomineeCard = ({ movie, removeNomineeById }) => {
         </MovieInfo>
         <Poster imgUrl={movie.Poster} />
       </CardContent>
-      <RemoveButton
-        onClick={handleRemoveButtonClick}
-      >
-        <Body className='card-text'>
-          Remove
-        </Body>
-      </RemoveButton>
+      <ButtonsContainer>
+        <ImdbLink>
+          <IconWrapper>
+            <HorizontalDotsMinor />
+          </IconWrapper>
+        </ImdbLink>
+        <RemoveButton
+          onClick={handleRemoveButtonClick}
+        >
+          <IconWrapper>
+            <CancelSmallMinor />
+          </IconWrapper>
+        </RemoveButton>
+      </ButtonsContainer>
     </CardGrid>
   )
 }
