@@ -5,6 +5,7 @@ import SubHeading from './typographic/SubHeading'
 
 const NomineesContainer = styled.div`
   text-align: center;
+  display: ${props => props.nomineeCount === 0 ? 'none' : 'block'};
 `
 
 const NomineesGrid = styled.div`
@@ -21,9 +22,9 @@ const NomineesGrid = styled.div`
   }
 `
 
-const Nominees = ({ nominees, removeNomineeById }) => {
+const Nominees = ({ nomineeCount, nominees, removeNomineeById }) => {
   return(
-    <NomineesContainer>
+    <NomineesContainer nomineeCount={nomineeCount}>
       <Display size='large'>
         My Nominees
       </Display>
