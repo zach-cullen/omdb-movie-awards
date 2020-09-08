@@ -40,7 +40,9 @@ export default function Home() {
     <main>
       <PageBackground>
         <CustomContainer maxW='1200px' pX='16px' pY='16px'>
-          <HomeBanner />
+          <HomeBanner 
+            nomineeCount={nominees.length}
+          />
           <Nominees 
             nominees={nominees}
             nomineeIds={nomineeIds}
