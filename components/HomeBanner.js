@@ -1,18 +1,11 @@
 import styled from 'styled-components'
 import ShoppiesLogoSVG from './ShoppiesLogoSVG'
+import Display from './typographic/Display'
 
 const WelcomeContainer = styled.div`
   width: 100%;
   height: 60px;
   padding: ${props => props.theme.spacing.loose} 0;
-`
-
-const LogoWrapper = styled.div`
-  display: block;
-  float: right;
-  margin: 0 auto;
-  width: 28px;
-  fill: ${props => props.theme.colors.brand.primary};
 `
 
 const LogoText = styled.div`
@@ -30,7 +23,28 @@ const LogoText = styled.div`
   }
 `
 
-const HomeBanner = () => {
+const LogoWrapper = styled.div`
+  float: left;
+  width: 28px;
+  height: 40px;
+  fill: ${props => props.theme.colors.brand.primary};
+`
+
+const NomineeCounter = styled.div`
+  display: block;
+  float: right;
+`
+
+const CounterText = styled.div`
+  float: left;
+  display: block;
+  font-size: 16px;
+  line-height: 40px;
+  margin-left: 8px;
+  color: ${props => props.theme.colors.brand.primary};
+`
+
+const HomeBanner = ({ nomineeCount }) => {
   return(
     <WelcomeContainer>
       <LogoText>
@@ -38,9 +52,14 @@ const HomeBanner = () => {
         <br />
         AWARDS <span className='small-text'>2020</span>
       </LogoText>
-      <LogoWrapper>
-        <ShoppiesLogoSVG fill='inherit' />
-      </LogoWrapper>
+      <NomineeCounter>
+        <LogoWrapper>
+          <ShoppiesLogoSVG fill='inherit' />
+        </LogoWrapper>
+        <CounterText>
+          {nomineeCount} / 5
+        </CounterText>
+      </NomineeCounter>
     </WelcomeContainer>
   )
 }
