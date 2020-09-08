@@ -131,9 +131,11 @@ const NomineeCard = ({ movie, removeNomineeById }) => {
       </CardContent>
       <ButtonsContainer>
         <ImdbLink>
-          <IconWrapper>
-            <HorizontalDotsMinor />
-          </IconWrapper>
+          <a href={`https://www.imdb.com/title/${movie.imdbID}/`} target='_blank'>
+            <IconWrapper>
+              <HorizontalDotsMinor />
+            </IconWrapper>
+          </a>
         </ImdbLink>
         <RemoveButton
           onClick={handleRemoveButtonClick}
