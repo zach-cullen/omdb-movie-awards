@@ -62,7 +62,7 @@ const renderCounter = nomineeCount => {
   } else {
     return(
       <>
-        &#215; {nomineeCount}
+        {nomineeCount} / 5
       </>
     )
   }
