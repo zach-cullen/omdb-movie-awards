@@ -2,9 +2,10 @@ import Head from 'next/head'
 import { useState } from 'react'
 import PageBackground from '../components/PageBackground'
 import CustomContainer from '../components/CustomContainer'
+import HomeBanner from '../components/HomeBanner'
+import WelcomeMessage from '../components/WelcomeMessage'
 import Nominees from '../components/Nominees'
 import Search from '../components/Search'
-import HomeBanner from '../components/HomeBanner'
 
 export default function Home() {
   const [nominees, setNominees] = useState([])
@@ -43,7 +44,11 @@ export default function Home() {
           <HomeBanner 
             nomineeCount={nominees.length}
           />
+          <WelcomeMessage 
+            nomineeCount={nominees.length}
+          />
           <Nominees 
+            nomineeCount={nominees.length}
             nominees={nominees}
             nomineeIds={nomineeIds}
             removeNomineeById={removeNomineeById}
