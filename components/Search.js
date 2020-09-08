@@ -5,6 +5,7 @@ import SearchResults from './SearchResults'
 import Display from './typographic/Display'
 
 const SearchContainer = styled.div`
+  padding-top: ${props => props.theme.spacing.extraLoose};
 `
 
 const Search = ({ addNominee, nomineeIds, removeNomineeById }) => {
@@ -48,8 +49,7 @@ const Search = ({ addNominee, nomineeIds, removeNomineeById }) => {
   
   return(
     <SearchContainer>
-
-      <Display size='small'>
+      <Display size='medium'>
         Search for a Movie:
       </Display>
       <SearchForm 
