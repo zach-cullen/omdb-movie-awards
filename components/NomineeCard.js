@@ -52,6 +52,7 @@ const MovieInfo = styled.div`
   padding: ${props => props.theme.spacing.tight};
   text-align: left;
   word-wrap: break-word;
+  overflow: scroll;
 `
 
 const ButtonsContainer = styled.div`
