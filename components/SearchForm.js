@@ -3,8 +3,6 @@ import styled from 'styled-components'
 import { SearchMinor, ResetMinor } from '@shopify/polaris-icons'
 
 const SearchBar = styled.div`
-  height: 36px;
-  /* max-width: 480px; */
   display: grid;
   overflow: hidden;
   grid-template-columns: 36px 1fr 36px;
