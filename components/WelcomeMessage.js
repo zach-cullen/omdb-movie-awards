@@ -7,6 +7,7 @@ import SubHeading from './typographic/SubHeading'
 const WelcomeContainer = styled.div`
   margin: ${props => props.theme.spacing.extraLoose} auto;
   box-sizing: border-box;
+  color: ${props => props.theme.colors.text.primary};
 `
 
 const LogoWrapper = styled.div`
@@ -27,10 +28,6 @@ const WelcomeText = styled.div`
     letter-spacing: 0.25em;
     margin: 8px 0;
   }
-
-  p {
-    margin: 8px 0;
-  }
 `
 
 const WelcomeMessage = () => {
@@ -46,9 +43,10 @@ const WelcomeMessage = () => {
         <SubHeading>
           Movie Awards for Entrepreneurs
         </SubHeading>
-        <Body>
+        <br />
+        <Display size='small'>
           Nominate up to 5 of your favorite movies.
-        </Body>
+        </Display>
       </WelcomeText>
     </WelcomeContainer>
   )
