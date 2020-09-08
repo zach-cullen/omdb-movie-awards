@@ -50,6 +50,7 @@ const MovieInfo = styled.div`
   background-image: linear-gradient(${props => props.theme.colors.bg.primary}, transparent);
   box-sizing: border-box;
   padding: ${props => props.theme.spacing.tight};
+  text-align: left;
   word-wrap: break-word;
 `
 
@@ -80,7 +81,6 @@ const IconWrapper = styled.div`
   transition: background-color 0.2s, fill 0.2s; 
 
   &:hover {
-    /* background-color: ${props => props.theme.colors.bg.secondary}; */
     fill: ${props => props.theme.colors.text.primary};
   }
 `
