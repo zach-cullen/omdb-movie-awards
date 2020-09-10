@@ -9,8 +9,8 @@ This app allows users to search the [OMDB Movie Database](http://www.omdbapi.com
 ## Running Locally
 
 ```bash
-git clone https://github.com/zach-cullen/liveoakfilm.co
-cd liveoakfilm.co
+git clone https://github.com/zach-cullen/omdb-movie-awards.git
+cd omdb-movie-awards
 yarn dev
 ```
 
