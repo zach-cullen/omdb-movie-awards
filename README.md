@@ -37,8 +37,6 @@ This projects also uses styled's ThemeProvider to programmatically set colors an
 
 [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-### Data Fetching: Strapi Headless CMS
-
 
 ### Code Style
 
