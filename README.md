@@ -3,7 +3,7 @@
 See Deployed Site:
 [OMDB Movie Awards](https://omdb-movie-awards.vercel.app/)
 
-This app allows users to search the [OMDB Movie Database][http://www.omdbapi.com/] public API, and select 5 films to be displayed as nominees for 'The Shppies' Movie Awards. 
+This app allows users to search the [OMDB Movie Database](http://www.omdbapi.com/) public API, and select 5 films to be displayed as nominees for 'The Shppies' Movie Awards. 
 
 
 ## Running Locally
