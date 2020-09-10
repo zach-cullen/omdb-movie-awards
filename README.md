@@ -5,6 +5,8 @@ See Deployed Site:
 
 This app allows users to search the [OMDB Movie Database](http://www.omdbapi.com/) public API, and select 5 films to be displayed as nominees for 'The Shppies' Movie Awards. 
 
+![App Preview](https://zc-github-images.s3.us-east-2.amazonaws.com/omdb-movie-awards-preview.png)
+
 
 ## Running Locally
 
