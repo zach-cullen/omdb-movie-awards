@@ -1,10 +1,11 @@
+import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Display from './typographic/Display'
 import { CancelSmallMinor } from '@shopify/polaris-icons'
 
 const MessageBox = styled.div`
   cursor: default;
-  opacity: ${props => props.showAlertMessage ? 1 : 0};
+  display: ${props => props.showAlertMessage ? 'block' : 'none'}; /* totally dispppear to prevent conflict on hide*/
   height: 180px;
   width: 300px;
   position: fixed;
@@ -17,8 +18,9 @@ const MessageBox = styled.div`
   border: solid 1px ${props => props.theme.colors.bg.secondary};
   background-color: ${props => props.theme.colors.bg.primary};
   box-shadow: 0px 0px 20px 5px ${props => props.theme.colors.bg.primary};
-  transition: opacity 0.25s;
   overflow: hidden;
+  opacity: ${props => props.visible ? 1 : 0}; /* visible set as effect after display is block to enable fade in to happen */
+  transition: opacity 0.25s;
 `
 
 const MessageTitle = styled.div`
@@ -47,24 +49,36 @@ const MessageText = styled.div`
   padding: 12px;
 `
 
-const AlertMessage = ({ showAlertMessage, hideAlertMessage }) => (
-  <MessageBox 
-    showAlertMessage={showAlertMessage}
-  >
-    <MessageTitle>
-      <Display size='small'>
-        Nominees Full
-      </Display>
-      <IconWrapper
-        onClick={hideAlertMessage}
-      >
-        <CancelSmallMinor />
-      </IconWrapper>
-    </MessageTitle>
-    <MessageText>
-      You have already selected 5 movies to nominate. If you would like to select another movie, please remove one of the movies you have already selected.
-    </MessageText> 
-  </MessageBox>
-)
+const AlertMessage = ({ showAlertMessage, hideAlertMessage }) => {
+  const [visible, setVisible] = useState(false)
+
+  // set visible as effect as it allows fade in after display: block
+  useEffect(() => {
+    if (showAlertMessage) {
+      setVisible(true)
+    }
+  }, [showAlertMessage])
+
+  return(
+    <MessageBox 
+      showAlertMessage={showAlertMessage}
+      visible={visible}
+    >
+      <MessageTitle>
+        <Display size='small'>
+          Nominees Full
+        </Display>
+        <IconWrapper
+          onClick={hideAlertMessage}
+        >
+          <CancelSmallMinor />
+        </IconWrapper>
+      </MessageTitle>
+      <MessageText>
+        You have already selected 5 movies to nominate. If you would like to select another movie, please remove one of the movies you have already selected.
+      </MessageText> 
+    </MessageBox>
+  )
+}
 
 export default AlertMessage
