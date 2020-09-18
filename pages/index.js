@@ -6,30 +6,33 @@ import HomeBanner from '../components/HomeBanner'
 import WelcomeMessage from '../components/WelcomeMessage'
 import Nominees from '../components/Nominees'
 import Search from '../components/Search'
+import AlertMessage from '../components/AlertMessage'
 
 export default function Home() {
   const [nominees, setNominees] = useState([])
   const [nomineeIds, setNomineeIds] = useState([])
+  const [showAlertMessage, setShowAlertMessage] = useState(false)
 
   const addNominee = movie => {
     if (nomineeIds.includes(movie.imdbID)) return // prevent duplicate nominations
     if (nominees.length === 5) {
-      nomineesFull()
-      return
+      setShowAlertMessage(true)
     }
-    setNominees(nominees.concat(movie))
-    setNomineeIds(nomineeIds.concat(movie.imdbID))
-    returnToPageTop()
-  }
-
-  const nomineesFull = () => {
-    alert('You may only nominate 5 movies, you may remove a nominee if you wish to change your selection')
+    if (nominees.length < 5) {
+      setNominees(nominees.concat(movie))
+      setNomineeIds(nomineeIds.concat(movie.imdbID))
+      returnToPageTop()
+    }
   }
 
   const removeNomineeById = movieId => {
     setNominees(nominees.filter(movie => movie.imdbID != movieId))
     setNomineeIds(nomineeIds.filter(id => id != movieId))
     returnToPageTop()
+  }
+
+  const hideAlertMessage = () => {
+    setShowAlertMessage(false)
   }
 
   const returnToPageTop = () => {
@@ -41,6 +44,10 @@ export default function Home() {
     <main>
       <PageBackground>
         <CustomContainer maxW='1200px' pX='16px' pY='8px'>
+          <AlertMessage 
+            showAlertMessage={showAlertMessage}
+            hideAlertMessage={hideAlertMessage}
+          />
           <HomeBanner 
             nomineeCount={nominees.length}
           />
