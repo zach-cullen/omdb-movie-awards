@@ -59,6 +59,15 @@ const AlertMessage = ({ showAlertMessage, hideAlertMessage }) => {
     }
   }, [showAlertMessage])
 
+  const handleCloseClick = () => {
+    // transition opacity
+    setVisible(false)
+    // trigger callback after opacity transition fade out to fully disappear element
+    setTimeout(() => {
+      hideAlertMessage()
+    }, 200)
+  }
+
   return(
     <MessageBox 
       showAlertMessage={showAlertMessage}
@@ -69,7 +78,7 @@ const AlertMessage = ({ showAlertMessage, hideAlertMessage }) => {
           Nominees Full
         </Display>
         <IconWrapper
-          onClick={hideAlertMessage}
+          onClick={handleCloseClick}
         >
           <CancelSmallMinor />
         </IconWrapper>
