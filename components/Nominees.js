@@ -34,7 +34,7 @@ const Nominees = ({ nomineeCount, nominees, removeNomineeById }) => {
         size='large' 
         nomineeCount={nomineeCount}
       >
-        My Nominees
+        {nomineeCount === 5 ? 'Selection Complete' : 'My Nominees'}
       </Display>
       <NomineesGrid>
         {nominees.map(movie => {
