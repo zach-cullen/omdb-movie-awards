@@ -6,6 +6,11 @@ import SubHeading from './typographic/SubHeading'
 const NomineesContainer = styled.div`
   text-align: center;
   display: ${props => props.nomineeCount === 0 ? 'none' : 'block'};
+
+  h2 {
+    color: ${props => props.nomineeCount === 5 ? props.theme.colors.brand.primary : 'white'};
+    transition: color 0.2s;
+  }
 `
 
 const NomineesGrid = styled.div`
@@ -25,7 +30,10 @@ const NomineesGrid = styled.div`
 const Nominees = ({ nomineeCount, nominees, removeNomineeById }) => {
   return(
     <NomineesContainer nomineeCount={nomineeCount}>
-      <Display size='large'>
+      <Display 
+        size='large' 
+        nomineeCount={nomineeCount}
+      >
         My Nominees
       </Display>
       <NomineesGrid>
